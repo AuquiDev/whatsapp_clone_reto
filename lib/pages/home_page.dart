@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone_reto/pages/StatusPages.dart';
 import 'package:whatsapp_clone_reto/pages/call_pages.dart';
 import 'package:whatsapp_clone_reto/pages/chat_pages.dart';
 
@@ -29,17 +30,17 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       
       appBar: AppBar(
         
-        title: Text("WhatsApp"),
+        title: const Text("WhatsApp"),
         actions: [
-          IconButton(onPressed: ()=> null, icon: Icon(Icons.search)),
-          IconButton(onPressed: ()=> null, icon: Icon(Icons.more_vert_outlined))
+          IconButton(onPressed: ()=> null, icon: const Icon(Icons.search)),
+          IconButton(onPressed: ()=> null, icon: const Icon(Icons.more_vert_outlined))
         ],
         bottom: TabBar(
           indicatorColor: Colors.white,
           indicatorWeight: 3,
           controller: _tabController,
           tabs: [
-               Tab(child: IconButton(onPressed: () => null, icon: Icon(Icons.camera_alt)),),
+               Tab(child: IconButton(onPressed: () => null, icon: const Icon(Icons.camera_alt)),),
                Tab(child: Text('Chats',style: _textStyle(),),),
                Tab(child: Text('Status',style: _textStyle(),),),
                Tab(child: Text('Calls',style: _textStyle(),),),
@@ -58,8 +59,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         children: [
           Container(height: double.infinity,color: Colors.red,),
           const ChatsPage(),
-          Container(height: double.infinity,color: Colors.amber,),
-          CallPages()
+          const StatusPages(),
+          const CallPages()
         ],
         
        )
