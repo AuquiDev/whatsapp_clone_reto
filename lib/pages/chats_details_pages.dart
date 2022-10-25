@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone_reto/data/data_dumimy.dart';
+import 'package:whatsapp_clone_reto/models/chat_menssage_models.dart';
 import 'package:whatsapp_clone_reto/models/chat_model.dart';
 
-class ChatDetailsPage extends StatelessWidget {
+class ChatDetailsPage extends StatefulWidget {
   const ChatDetailsPage({super.key});
+
+  @override
+  State<ChatDetailsPage> createState() => _ChatDetailsPageState();
+}
+
+class _ChatDetailsPageState extends State<ChatDetailsPage> {
+
+  final TextEditingController _chatcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -87,9 +96,6 @@ class ChatDetailsPage extends StatelessWidget {
             ),
 
 
-
-
-
             // input del nuevo mensaje
             Align(
                 alignment: Alignment.bottomCenter,
@@ -99,17 +105,28 @@ class ChatDetailsPage extends StatelessWidget {
                     child: Row(
                       children: [
                         Expanded(
+
                           child: TextField(
+                            controller: _chatcontroller,
                             decoration: InputDecoration(
                                 hintText: 'escribe un mensaje',
                                 hintStyle: const TextStyle(
                                     fontSize: 16, color: Colors.black38),
                                 filled: true,
                                 fillColor: Colors.white,
-                                prefixIcon: const Icon(
-                                  Icons.sentiment_satisfied_alt,
-                                  size: 30,
-                                  color: Colors.black45,
+                                prefixIcon: IconButton(
+                                  onPressed: (() {
+                                     ChatMessageModels chat = ChatMessageModels(
+                                      messageContent: _chatcontroller.text, 
+                                      messageType: 'Other');//'me');
+                                    chatmessageList.add(chat);
+                                    _chatcontroller.clear();
+                                  }),
+                                  icon: const Icon(
+                                    Icons.sentiment_satisfied_alt,
+                                    size: 30,
+                                    color: Colors.black45,
+                                  ),
                                 ),
                                 suffixIcon: Row(
                                   mainAxisSize: MainAxisSize.min,
@@ -142,23 +159,31 @@ class ChatDetailsPage extends StatelessWidget {
                         SizedBox(
                           width: 7,
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            print('hola');
-                          },
-                          child: Container(
-                              decoration: const BoxDecoration(
-                                  color: Color(0xff008878),
-                                  shape: BoxShape.circle),
-                              padding: EdgeInsets.all(12),
-                              child: IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons.send,
-                                    size: 30,
-                                    color: Colors.white,
-                                  ))),
-                        )
+                        //Reto hacer que el chat funcione
+                        Container(
+                            decoration: const BoxDecoration(
+                                color: Color(0xff008878),
+                                shape: BoxShape.circle),
+                            padding: EdgeInsets.all(12),
+                            child: IconButton(
+                                onPressed: () {
+                                  ChatMessageModels chat = ChatMessageModels(
+                                      messageContent: _chatcontroller.text, 
+                                      messageType: 'me');//'me');
+                                    chatmessageList.add(chat);
+                                    _chatcontroller.clear();
+                                    /*chatmessageList.add(ChatMessageModels(
+                                      messageContent: 'messageContent', 
+                                      messageType: 'other'));*/
+                                      setState(() {
+                              
+                            });
+                                },
+                                icon: const Icon(
+                                  Icons.send,
+                                  size: 30,
+                                  color: Colors.white,
+                                )))
                       ],
                     ))),
         

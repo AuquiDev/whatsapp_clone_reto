@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone_reto/models/chat_model.dart';
-import 'package:whatsapp_clone_reto/pages/chats_details_page.dart';
+import 'package:whatsapp_clone_reto/pages/chats_details_pages.dart';
 
 class ItemChatWidget extends StatelessWidget {
 
