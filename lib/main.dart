@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone_reto/pages/home_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,14 +9,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
+      title: 'RetosClone',
+      debugShowCheckedModeBanner: false,
+      home:  HomePage(),
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xff065e52),
         ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Color(0xff01c851)
+          ),
       ),
     );
   }
