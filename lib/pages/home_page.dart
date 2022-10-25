@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone_reto/pages/call_pages.dart';
 import 'package:whatsapp_clone_reto/pages/chat_pages.dart';
 
 class HomePage extends StatefulWidget {
@@ -58,7 +59,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           Container(height: double.infinity,color: Colors.red,),
           const ChatsPage(),
           Container(height: double.infinity,color: Colors.amber,),
-          Container(height: double.infinity,color: Colors.pink,)
+          CallPages()
         ],
         
        )

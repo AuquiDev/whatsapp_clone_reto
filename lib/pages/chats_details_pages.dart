@@ -169,15 +169,15 @@ class _ChatDetailsPageState extends State<ChatDetailsPage> {
                                 onPressed: () {
                                   ChatMessageModels chat = ChatMessageModels(
                                       messageContent: _chatcontroller.text, 
-                                      messageType: 'me');//'me');
+                                      messageType: 'me');//'Other');
+                                  
+                                  
                                     chatmessageList.add(chat);
                                     _chatcontroller.clear();
-                                    /*chatmessageList.add(ChatMessageModels(
-                                      messageContent: 'messageContent', 
-                                      messageType: 'other'));*/
+                                   
                                       setState(() {
                               
-                            });
+                                      });
                                 },
                                 icon: const Icon(
                                   Icons.send,
